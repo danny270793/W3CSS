@@ -43,5 +43,3 @@ export type Color =
   | "info"
   | "success"
   | "success"
-
-export type W3Color = `w3-${Color}`
