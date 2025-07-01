@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from "react"
-import type { W3Color } from "./colors"
+import type { Color } from "./colors"
 import { Div } from "./div"
 
 interface ContainerProps {
   children?: ReactNode
-  color?: W3Color
+  color?: Color
   className?: string
 }
 

@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from "react"
-import type { W3Color } from "./colors"
+import type { Color } from "./colors"
 import { Div } from "./div"
 
 interface CardProps {
   children?: ReactNode
   elevation?: 2 | 4
-  color?: W3Color
+  color?: Color
   className?: string
 }
 
