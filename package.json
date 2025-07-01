@@ -1,6 +1,6 @@
 {
   "name": "@danny270793/w3css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React components library based on <a href=\"https://www.w3schools.com/w3css/\">w3css</a> library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
