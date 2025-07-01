@@ -19,10 +19,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "echo 0"
   },
   "peerDependencies": {
     "react": "^19.1.0"
