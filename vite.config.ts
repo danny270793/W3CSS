@@ -3,6 +3,7 @@ import dts from "vite-plugin-dts"
 import { peerDependencies } from "./package.json"
 
 export default defineConfig({
+  plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
   build: {
     lib: {
       entry: "./src/index.ts", // Specifies the entry point for building the library.
@@ -16,5 +17,4 @@ export default defineConfig({
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
   },
-  plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 })
