@@ -1,13 +1,23 @@
 {
   "name": "@danny270793/w3css",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React components library based on <a href=\"https://www.w3schools.com/w3css/\">w3css</a> library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "dist/**/*"
   ],
+  "author": {
+    "name": "Danny Vaca",
+    "email": "danny270793@gmail.com",
+    "url": "https://danny270793.github.io/#/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danny270793/w3css"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
