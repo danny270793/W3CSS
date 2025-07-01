@@ -42,4 +42,4 @@ export type Color =
   | "w3-note"
   | "w3-info"
   | "w3-success"
-  | "w3-success";
+  | "w3-success"

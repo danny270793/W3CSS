@@ -28,7 +28,7 @@ npm install @danny270793/w3css
 Use just the css
 
 ```tsx
-import "@danny270793/w3css/dist/w3css.css";
+import "@danny270793/w3css/dist/w3css.css"
 
 function App() {
   return (
@@ -36,17 +36,17 @@ function App() {
       <div classname="w3-card">a simple card</div>
       <div classname="w3-card-4">a simple card with more elevation</div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 or use pre-created componets
 
 ```tsx
-import "@danny270793/w3css/dist/w3css.css";
-import { Card } from "@danny270793/w3css";
+import "@danny270793/w3css/dist/w3css.css"
+import { Card } from "@danny270793/w3css"
 
 function App() {
   return (
@@ -54,10 +54,10 @@ function App() {
       <Card>a simple card</Card>
       <Card elevation={4}>a simple card with more elevation</Card>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ## Follow me
