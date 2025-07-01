@@ -20,7 +20,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b && vite build",
-    "test": "echo 0"
+    "test": "echo 0",
+    "format": "prettier --write ."
   },
   "peerDependencies": {
     "react": "^19.1.0"
