@@ -1,3 +1,3 @@
-import "./styles/w3css.css";
+import "./styles/w3css.css"
 
-export { Card } from "./components/card";
+export { Card } from "./components/card"

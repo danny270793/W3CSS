@@ -1,12 +1,12 @@
-import type { FC, ReactNode } from "react";
-import type { Color } from "./colors";
-import type { Border } from "./border";
+import type { FC, ReactNode } from "react"
+import type { Color } from "./colors"
+import type { Border } from "./border"
 
 interface DivProps {
-  children?: ReactNode;
-  className?: string;
-  color?: Color;
-  border?: boolean | Border;
+  children?: ReactNode
+  className?: string
+  color?: Color
+  border?: boolean | Border
 }
 
 export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
@@ -34,5 +34,5 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     >
       {props.children}
     </div>
-  );
-};
+  )
+}

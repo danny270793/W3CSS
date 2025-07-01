@@ -1,12 +1,12 @@
-import type { FC, ReactNode } from "react";
-import type { Color } from "./colors";
-import { Div } from "./div";
+import type { FC, ReactNode } from "react"
+import type { Color } from "./colors"
+import { Div } from "./div"
 
 interface CardProps {
-  children?: ReactNode;
-  elevation?: 2 | 4;
-  color?: Color;
-  className?: string;
+  children?: ReactNode
+  elevation?: 2 | 4
+  color?: Color
+  className?: string
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
@@ -19,5 +19,5 @@ export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
     >
       {props.children}
     </Div>
-  );
-};
+  )
+}
