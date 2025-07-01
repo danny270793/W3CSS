@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
+import type { W3Color } from "./colors"
 import type { Border } from "./border"
 
 interface DivProps {
   children?: ReactNode
   className?: string
-  color?: Color
+  color?: W3Color
   border?: boolean | Border
 }
 
@@ -27,6 +27,10 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
       } ${
         props.border instanceof Object && props.border.right
           ? "w3-border-right"
+          : ""
+      } ${
+        props.border instanceof Object && props.border.color
+          ? `w3-border-${props.border.color}`
           : ""
       }`}
     >
