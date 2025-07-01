@@ -18,6 +18,18 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
         props.border instanceof Object && props.border.top
           ? "w3-border-top"
           : ""
+      } ${
+        props.border instanceof Object && props.border.bottom
+          ? "w3-border-bottom"
+          : ""
+      } ${
+        props.border instanceof Object && props.border.left
+          ? "w3-border-left"
+          : ""
+      } ${
+        props.border instanceof Object && props.border.right
+          ? "w3-border-right"
+          : ""
       }`}
     >
       {props.children}
