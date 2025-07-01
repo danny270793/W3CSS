@@ -12,9 +12,7 @@ interface DivProps {
 export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
   return (
     <div
-      className={`${props.className} ${props.color} ${
-        props.border === true ? "w3-border" : ""
-      } ${
+      className={`${props.className} ${props.color} ${props.border instanceof Boolean ? `w3-border${props.border ? "" : "-0"}` : ""} ${
         props.border instanceof Object && props.border.top
           ? "w3-border-top"
           : ""
