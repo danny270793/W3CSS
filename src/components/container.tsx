@@ -9,7 +9,7 @@ interface ContainerProps {
 }
 
 export const Container: FC<ContainerProps> = (
-  props: ContainerProps
+  props: ContainerProps,
 ): ReactNode => {
   return (
     <Div color={props.color} className={`w3-container ${props.className}`}>
