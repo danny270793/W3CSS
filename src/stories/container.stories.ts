@@ -40,3 +40,16 @@ export const WithSomeBorders: Story = {
     },
   },
 }
+
+export const WithSomeHoverableBorders: Story = {
+  args: {
+    children: "This is a red bordered with pale red container",
+    border: {
+      left: true,
+      right: true,
+      hover: "blue",
+      color: "red",
+    },
+    color: "pale-red",
+  },
+}
