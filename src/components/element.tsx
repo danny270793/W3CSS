@@ -4,6 +4,7 @@ import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
+import type { Type } from "../constants/types"
 
 interface ElementProps {
   children?: ReactNode
@@ -14,6 +15,7 @@ interface ElementProps {
   round?: Round
   font?: Font
   size?: Size
+  type?: Type
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -85,5 +87,13 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
       classNames.push(`w3-${props.round}`)
     }
   }
-  return <div className={classNames.join(" ")}>{props.children}</div>
+
+  switch (props.type || "div") {
+    case "div":
+      return <div className={classNames.join(" ")}>{props.children}</div>
+    case "header":
+      return <header className={classNames.join(" ")}>{props.children}</header>
+    case "footer":
+      return <footer className={classNames.join(" ")}>{props.children}</footer>
+  }
 }
