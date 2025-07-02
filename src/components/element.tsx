@@ -5,7 +5,7 @@ import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
 
-interface DivProps {
+interface ElementProps {
   children?: ReactNode
   className?: string
   color?: Color
@@ -16,7 +16,7 @@ interface DivProps {
   size?: Size
 }
 
-export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
+export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   const classNames: string[] = []
   if (props.className) {
     classNames.push(props.className)
