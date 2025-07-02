@@ -45,3 +45,41 @@ export const Quote: Story = {
     size: "xxlarge",
   },
 }
+
+export const Alert: Story = {
+  args: {
+    children: (
+      <>
+        <h3>Danger!</h3>
+        <p>Red often indicates a dangerous or negative situation.</p>
+      </>
+    ),
+    color: "red",
+  },
+}
+
+export const AsCard: Story = {
+  args: {
+    children: (
+      <p>
+        London is the most populous city in the United Kingdom, with a
+        metropolitan area of over 9 million inhabitants.
+      </p>
+    ),
+    color: "blue",
+    className: "w3-card-4",
+  },
+}
+
+export const Rounded: Story = {
+  args: {
+    children: (
+      <p>
+        London is the most populous city in the United Kingdom, with a
+        metropolitan area of over 9 million inhabitants.
+      </p>
+    ),
+    color: "blue",
+    round: "xlarge",
+  },
+}
