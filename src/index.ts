@@ -23,5 +23,14 @@ export { Input } from "./components/input"
 export { List, ListItem } from "./components/list"
 export { Panel } from "./components/panel"
 export { Radio } from "./components/radio"
-export { Row, RowHalf, RowThird } from "./components/row"
+export {
+  Row,
+  RowHalf,
+  RowThird,
+  RowCol,
+  RowQuarter,
+  RowRest,
+  RowThreeQuarter,
+  RowTwoThird,
+} from "./components/row"
 export { Tag } from "./components/tag"
