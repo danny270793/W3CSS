@@ -13,13 +13,7 @@ type Story = StoryObj<typeof meta>
 
 export const Normal: Story = {
   args: {
-    children: "This is a normal panel",
-  },
-}
-
-export const BlueNormal: Story = {
-  args: {
-    children: "This is a normal blue panel",
-    color: "blue",
+    children: <p>I am a panel.</p>,
+    color: "red",
   },
 }
