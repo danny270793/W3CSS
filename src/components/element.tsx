@@ -27,6 +27,7 @@ export interface ElementProps {
   style?: CSSProperties | undefined
   opaque?: boolean
   disabled?: boolean
+  wide?: boolean
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -123,6 +124,9 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   }
   if (props.disabled) {
     classNames.push(`w3-disabled`)
+  }
+  if (props.wide) {
+    classNames.push(`w3-wide`)
   }
 
   switch (props.type || "div") {
