@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { List, ListItem } from "../components/list"
+import { Element } from "../components/element"
 
 const meta = {
   title: "List",
@@ -72,9 +73,11 @@ export const Beauty: Story = {
             style={{ width: "85px" }}
           />
           <div className="w3-bar-item">
-            <span className="w3-large">Jill</span>
+            <Element type="span" size="large">
+              Jill
+            </Element>
             <br />
-            <span>Support</span>
+            <Element type="span">Support</Element>
           </div>
         </ListItem>
         <ListItem className="w3-bar">
@@ -84,9 +87,11 @@ export const Beauty: Story = {
             style={{ width: "85px" }}
           />
           <div className="w3-bar-item">
-            <span className="w3-large">Jill</span>
+            <Element type="span" size="large">
+              Jill
+            </Element>
             <br />
-            <span>Support</span>
+            <Element type="span">Support</Element>
           </div>
         </ListItem>
       </>
