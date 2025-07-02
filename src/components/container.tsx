@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
-import { Div } from "./div"
+import { Element } from "./element"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
@@ -15,13 +15,14 @@ interface ContainerProps {
   thickBorder?: boolean | Border
   font?: Font
   size?: Size
+  type?: "header" | "footer" | "div"
 }
 
 export const Container: FC<ContainerProps> = (
   props: ContainerProps,
 ): ReactNode => {
   return (
-    <Div
+    <Element
       className={["w3-container", props.className].join(" ")}
       color={props.color}
       round={props.round}
@@ -31,6 +32,6 @@ export const Container: FC<ContainerProps> = (
       size={props.size}
     >
       {props.children}
-    </Div>
+    </Element>
   )
 }

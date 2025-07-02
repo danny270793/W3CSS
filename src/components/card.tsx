@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
-import { Div } from "./div"
+import { Element } from "./element"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
@@ -20,7 +20,7 @@ interface CardProps {
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
   return (
-    <Div
+    <Element
       className={[
         `w3-card-${props.elevation ? props.elevation : 2}`,
         props.className,
@@ -33,6 +33,6 @@ export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
       size={props.size}
     >
       {props.children}
-    </Div>
+    </Element>
   )
 }
