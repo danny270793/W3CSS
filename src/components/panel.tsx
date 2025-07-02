@@ -5,6 +5,7 @@ import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
+import type { Type } from "../constants/types"
 
 interface PanelProps {
   children?: ReactNode
@@ -15,6 +16,7 @@ interface PanelProps {
   thickBorder?: boolean | Border
   font?: Font
   size?: Size
+  type?: Type
 }
 
 export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
@@ -27,6 +29,7 @@ export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
       thickBorder={props.thickBorder}
       font={props.font}
       size={props.size}
+      type={props.type}
     >
       {props.children}
     </Element>

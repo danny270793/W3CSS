@@ -5,6 +5,7 @@ import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
+import type { Type } from "../constants/types"
 
 interface CardProps {
   children?: ReactNode
@@ -16,6 +17,7 @@ interface CardProps {
   thickBorder?: boolean | Border
   font?: Font
   size?: Size
+  type?: Type
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
@@ -31,6 +33,7 @@ export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
       thickBorder={props.thickBorder}
       font={props.font}
       size={props.size}
+      type={props.type}
     >
       {props.children}
     </Element>
