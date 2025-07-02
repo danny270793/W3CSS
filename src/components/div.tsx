@@ -2,6 +2,7 @@ import type { FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/round"
+import type { Font } from "../constants/fonts"
 
 interface DivProps {
   children?: ReactNode
@@ -10,6 +11,7 @@ interface DivProps {
   border?: boolean | Border
   thickBorder?: boolean | Border
   round?: Round
+  font?: Font
 }
 
 export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
@@ -72,6 +74,9 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     } else {
       classNames.push(`w3-round-${props.round}`)
     }
+  }
+  if (props.font) {
+    classNames.push(`w3-${props.font}`)
   }
   return <div className={classNames.join(" ")}>{props.children}</div>
 }
