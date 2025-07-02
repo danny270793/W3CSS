@@ -1,1 +1,1 @@
-export type Type = "header" | "footer" | "div"
+export type Type = "header" | "footer" | "div" | "button"
