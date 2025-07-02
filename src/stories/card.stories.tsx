@@ -43,3 +43,38 @@ export const Complex: Story = {
     elevation: 4,
   },
 }
+
+export const Image: Story = {
+  args: {
+    children: (
+      <>
+        <img
+          src="https://www.w3schools.com/w3css/img_snowtops.jpg"
+          alt="Alps"
+        />
+        <Container center>
+          <p>The Italian / Austrian Alps</p>
+        </Container>
+      </>
+    ),
+    elevation: 4,
+  },
+}
+
+export const CallCard: Story = {
+  args: {
+    children: (
+      <Container center>
+        <h3>Friend request</h3>
+        <img
+          src="https://www.w3schools.com/w3css/img_avatar3.png"
+          alt="Avatar"
+          style={{ width: "80%" }}
+        />
+        <h5>John Doe</h5>
+      </Container>
+    ),
+    color: "dark-gray",
+    elevation: 4,
+  },
+}
