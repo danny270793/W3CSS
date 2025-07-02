@@ -16,6 +16,7 @@ interface ElementProps {
   font?: Font
   size?: Size
   type?: Type
+  center?: boolean
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -86,6 +87,9 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     if (props.size !== "normal") {
       classNames.push(`w3-${props.round}`)
     }
+  }
+  if (props.center) {
+    classNames.push("w3-center")
   }
 
   switch (props.type || "div") {
