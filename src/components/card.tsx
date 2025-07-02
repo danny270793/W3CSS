@@ -18,6 +18,7 @@ interface CardProps {
   font?: Font
   size?: Size
   type?: Type
+  center?: boolean
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
@@ -34,6 +35,7 @@ export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
       font={props.font}
       size={props.size}
       type={props.type}
+      center={props.center}
     >
       {props.children}
     </Element>

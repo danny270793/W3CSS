@@ -17,6 +17,7 @@ interface ContainerProps {
   font?: Font
   size?: Size
   type?: Type
+  center?: boolean
 }
 
 export const Container: FC<ContainerProps> = (
@@ -32,6 +33,7 @@ export const Container: FC<ContainerProps> = (
       font={props.font}
       size={props.size}
       type={props.type}
+      center={props.center}
     >
       {props.children}
     </Element>

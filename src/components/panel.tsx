@@ -17,6 +17,7 @@ interface PanelProps {
   font?: Font
   size?: Size
   type?: Type
+  center?: boolean
 }
 
 export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
@@ -30,6 +31,7 @@ export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
       font={props.font}
       size={props.size}
       type={props.type}
+      center={props.center}
     >
       {props.children}
     </Element>
