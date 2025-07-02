@@ -1,10 +1,4 @@
-import type {
-  ChangeEventHandler,
-  CSSProperties,
-  FC,
-  HTMLInputTypeAttribute,
-  ReactNode,
-} from "react"
+import type { ChangeEvent, CSSProperties, FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
@@ -46,10 +40,25 @@ export interface CommonProps {
 
 export interface InputProps extends CommonProps {
   type?: "input"
-  mode?: HTMLInputTypeAttribute
+  mode: "text" | "password" | "email" | "number"
   placeholder?: string
   value?: string
-  onChange?: ChangeEventHandler<HTMLInputElement>
+  onChange?: (value: string) => void
+}
+
+export interface CheckboxProps extends CommonProps {
+  type?: "input"
+  mode: "checkbox"
+  checked?: boolean
+  onChange?: (checked: boolean) => void
+}
+
+export interface RadioProps extends CommonProps {
+  type?: "input"
+  mode: "radio"
+  selected?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
 export interface ImageProps extends CommonProps {
@@ -62,7 +71,12 @@ export interface OtherProps extends CommonProps {
   type?: Exclude<Type, "img" | "input">
 }
 
-type ElementProps = OtherProps | ImageProps | InputProps
+export type ElementProps =
+  | OtherProps
+  | ImageProps
+  | InputProps
+  | CheckboxProps
+  | RadioProps
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   const classNames: string[] = []
@@ -223,64 +237,101 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     }
   }
 
-  switch (props.type || "div") {
-    case "div":
-      return (
-        <div className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </div>
-      )
-    case "header":
-      return (
-        <header className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </header>
-      )
-    case "footer":
-      return (
-        <footer className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </footer>
-      )
-    case "button":
-      return (
-        <button className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </button>
-      )
-    case "li":
-      return (
-        <li className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </li>
-      )
-    case "span":
-      return (
-        <span className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </span>
-      )
-    case "img":
-      return (
-        <img
-          className={classNames.join(" ")}
-          style={props.style}
-          src={props.type === "img" ? props.src : undefined}
-          alt={props.type === "img" ? props.alt : undefined}
-        >
-          {props.children}
-        </img>
-      )
-    case "input":
+  if (!props.type || props.type === "div") {
+    return (
+      <div className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </div>
+    )
+  } else if (props.type === "header") {
+    return (
+      <header className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </header>
+    )
+  } else if (props.type === "footer") {
+    return (
+      <footer className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </footer>
+    )
+  } else if (props.type === "button") {
+    return (
+      <button className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </button>
+    )
+  } else if (props.type === "li") {
+    return (
+      <li className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </li>
+    )
+  } else if (props.type === "span") {
+    return (
+      <span className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </span>
+    )
+  } else if (props.type === "img") {
+    return (
+      <img
+        className={classNames.join(" ")}
+        style={props.style}
+        src={props.type === "img" ? props.src : undefined}
+        alt={props.type === "img" ? props.alt : undefined}
+      >
+        {props.children}
+      </img>
+    )
+  } else if (props.type === "input") {
+    if (props.mode === "checkbox") {
       return (
         <input
-          type={props.type === "input" ? props.mode : undefined}
-          value={props.type === "input" ? props.value : undefined}
-          onChange={props.type === "input" ? props.onChange : undefined}
-          placeholder={props.type === "input" ? props.placeholder : undefined}
+          type={props.mode}
+          disabled={props.disabled}
           className={classNames.join(" ")}
           style={props.style}
+          checked={props.checked}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            if (props.onChange) {
+              props.onChange(e.target.checked)
+            }
+          }}
         />
       )
+    } else if (props.mode === "radio") {
+      return (
+        <input
+          type={props.mode}
+          disabled={props.disabled}
+          className={classNames.join(" ")}
+          style={props.style}
+          value={props.value}
+          checked={props.value === props.selected}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            if (props.onChange) {
+              props.onChange(e.target.value)
+            }
+          }}
+        />
+      )
+    }
+
+    return (
+      <input
+        type={props.mode}
+        disabled={props.disabled}
+        className={classNames.join(" ")}
+        style={props.style}
+        placeholder={props.placeholder}
+        value={props.value}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          if (props.onChange) {
+            props.onChange(e.target.value)
+          }
+        }}
+      />
+    )
   }
 }
