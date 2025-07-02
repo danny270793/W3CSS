@@ -35,6 +35,9 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     if (props.border.color) {
       classNames.push(`w3-border-${props.border.color}`)
     }
+    if (props.border.hover) {
+      classNames.push(`w3-hover-border-${props.border.hover}`)
+    }
   }
   return <div className={classNames.join(" ")}>{props.children}</div>
 }
