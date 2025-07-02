@@ -1,1 +1,10 @@
-export type Size = "small" | "normal" | "large" | "xlarge" | "xxlarge"
+export type Size =
+  | "tiny"
+  | "small"
+  | "medium"
+  | "normal"
+  | "large"
+  | "xlarge"
+  | "xxlarge"
+  | "xxxlarge"
+  | "jumbo"
