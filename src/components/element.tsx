@@ -1,4 +1,10 @@
-import type { CSSProperties, FC, ReactNode } from "react"
+import type {
+  ChangeEventHandler,
+  CSSProperties,
+  FC,
+  HTMLInputTypeAttribute,
+  ReactNode,
+} from "react"
 import type { Color } from "../constants/colors"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
@@ -9,7 +15,7 @@ import type { TextAlign } from "../constants/text-align"
 import type { Padding } from "../constants/padding"
 import type { Margin } from "../constants/margin"
 
-export interface ElementProps {
+export interface CommonProps {
   children?: ReactNode
   className?: string
   color?: Color
@@ -38,19 +44,27 @@ export interface ElementProps {
   show?: boolean
 }
 
-export interface ImageProps extends ElementProps {
+export interface InputProps extends CommonProps {
+  type?: "input"
+  mode?: HTMLInputTypeAttribute
+  placeholder?: string
+  value?: string
+  onChange?: ChangeEventHandler<HTMLInputElement>
+}
+
+export interface ImageProps extends CommonProps {
   type?: "img"
   src: string
   alt?: string
 }
 
-export interface OtherProps extends ElementProps {
-  type?: Exclude<Type, "img">
+export interface OtherProps extends CommonProps {
+  type?: Exclude<Type, "img" | "input">
 }
 
-export const Element: FC<OtherProps | ImageProps> = (
-  props: OtherProps | ImageProps,
-): ReactNode => {
+type ElementProps = OtherProps | ImageProps | InputProps
+
+export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   const classNames: string[] = []
   if (props.className) {
     classNames.push(props.className)
@@ -256,6 +270,17 @@ export const Element: FC<OtherProps | ImageProps> = (
         >
           {props.children}
         </img>
+      )
+    case "input":
+      return (
+        <input
+          type={props.type === "input" ? props.mode : undefined}
+          value={props.type === "input" ? props.value : undefined}
+          onChange={props.type === "input" ? props.onChange : undefined}
+          placeholder={props.type === "input" ? props.placeholder : undefined}
+          className={classNames.join(" ")}
+          style={props.style}
+        />
       )
   }
 }
