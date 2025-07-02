@@ -1,6 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
-import { Row, RowHalf, RowThird } from "../components/row"
+import {
+  Row,
+  RowCol,
+  RowHalf,
+  RowQuarter,
+  RowRest,
+  RowThird,
+  RowThreeQuarter,
+  RowTwoThird,
+} from "../components/row"
 
 const meta = {
   title: "Row",
@@ -29,6 +38,66 @@ export const ThreeThird: Story = {
         <RowThird color="green">Left</RowThird>
         <RowThird color="red">center</RowThird>
         <RowThird color="blue">Right</RowThird>
+      </>
+    ),
+  },
+}
+
+export const TwoThird: Story = {
+  args: {
+    children: (
+      <>
+        <RowTwoThird color="green">Left</RowTwoThird>
+        <RowThird color="blue">Right</RowThird>
+      </>
+    ),
+  },
+}
+
+export const Quarter: Story = {
+  args: {
+    children: (
+      <>
+        <RowQuarter color="green">1</RowQuarter>
+        <RowQuarter color="blue">2</RowQuarter>
+        <RowQuarter color="green">3</RowQuarter>
+        <RowQuarter color="blue">4</RowQuarter>
+      </>
+    ),
+  },
+}
+
+export const ThreeQuarter: Story = {
+  args: {
+    children: (
+      <>
+        <RowThreeQuarter color="green">1</RowThreeQuarter>
+        <RowQuarter color="blue">2</RowQuarter>
+      </>
+    ),
+  },
+}
+
+export const Combination: Story = {
+  args: {
+    children: (
+      <>
+        <RowQuarter color="green">1</RowQuarter>
+        <RowHalf color="blue">2</RowHalf>
+        <RowQuarter color="green">3</RowQuarter>
+      </>
+    ),
+  },
+}
+
+export const Rest: Story = {
+  args: {
+    children: (
+      <>
+        <RowCol color="green" style={{ width: "100px" }}>
+          1
+        </RowCol>
+        <RowRest color="blue">2</RowRest>
       </>
     ),
   },
