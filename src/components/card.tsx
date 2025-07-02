@@ -9,8 +9,9 @@ interface CardProps {
   className?: string
   elevation?: 2 | 4
   color?: Color
-  border?: boolean | Border
   round?: Round
+  border?: boolean | Border
+  thickBorder?: boolean | Border
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
@@ -23,6 +24,7 @@ export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
       color={props.color}
       round={props.round}
       border={props.border}
+      thickBorder={props.thickBorder}
     >
       {props.children}
     </Div>

@@ -10,6 +10,7 @@ interface PanelProps {
   color?: Color
   round?: Round
   border?: boolean | Border
+  thickBorder?: boolean | Border
 }
 
 export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
@@ -19,6 +20,7 @@ export const Panel: FC<PanelProps> = (props: PanelProps): ReactNode => {
       color={props.color}
       round={props.round}
       border={props.border}
+      thickBorder={props.thickBorder}
     >
       {props.children}
     </Div>
