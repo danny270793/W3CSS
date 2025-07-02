@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
-import { Element, type ElementProps } from "./element"
+import { Element, type DisplayProps } from "./element"
 
-export const Display: FC<ElementProps> = (props: ElementProps): ReactNode => {
+export const Display: FC<DisplayProps> = (props: DisplayProps): ReactNode => {
   return (
     <Element
       {...props}
@@ -13,8 +13,8 @@ export const Display: FC<ElementProps> = (props: ElementProps): ReactNode => {
   )
 }
 
-export const DisplayTopMiddle: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayTopMiddle: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -27,8 +27,8 @@ export const DisplayTopMiddle: FC<ElementProps> = (
   )
 }
 
-export const DisplayTopLeft: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayTopLeft: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -41,8 +41,8 @@ export const DisplayTopLeft: FC<ElementProps> = (
   )
 }
 
-export const DisplayTopRight: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayTopRight: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -55,8 +55,8 @@ export const DisplayTopRight: FC<ElementProps> = (
   )
 }
 
-export const DisplayBottomMiddle: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayBottomMiddle: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -69,8 +69,8 @@ export const DisplayBottomMiddle: FC<ElementProps> = (
   )
 }
 
-export const DisplayBottomLeft: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayBottomLeft: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -83,8 +83,8 @@ export const DisplayBottomLeft: FC<ElementProps> = (
   )
 }
 
-export const DisplayBottomRight: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayBottomRight: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -97,8 +97,8 @@ export const DisplayBottomRight: FC<ElementProps> = (
   )
 }
 
-export const DisplayMiddle: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayMiddle: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -111,8 +111,8 @@ export const DisplayMiddle: FC<ElementProps> = (
   )
 }
 
-export const DisplayLeft: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayLeft: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
@@ -125,8 +125,8 @@ export const DisplayLeft: FC<ElementProps> = (
   )
 }
 
-export const DisplayRight: FC<ElementProps> = (
-  props: ElementProps,
+export const DisplayRight: FC<DisplayProps> = (
+  props: DisplayProps,
 ): ReactNode => {
   return (
     <Element
