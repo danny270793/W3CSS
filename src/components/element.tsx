@@ -36,7 +36,19 @@ export interface ElementProps {
   show?: boolean
 }
 
-export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
+export interface ImageProps extends ElementProps {
+  type?: "img"
+  src: string
+  alt?: string
+}
+
+export interface OtherProps extends ElementProps {
+  type?: Exclude<Type, "img">
+}
+
+export const Element: FC<OtherProps | ImageProps> = (
+  props: OtherProps | ImageProps,
+): ReactNode => {
   const classNames: string[] = []
   if (props.className) {
     classNames.push(props.className)
@@ -213,6 +225,17 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
         <span className={classNames.join(" ")} style={props.style}>
           {props.children}
         </span>
+      )
+    case "img":
+      return (
+        <img
+          className={classNames.join(" ")}
+          style={props.style}
+          src={props.type === "img" ? props.src : undefined}
+          alt={props.type === "img" ? props.alt : undefined}
+        >
+          {props.children}
+        </img>
       )
   }
 }
