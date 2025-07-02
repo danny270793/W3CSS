@@ -18,6 +18,7 @@ export {
   DisplayTopMiddle,
   DisplayTopRight,
 } from "./components/display"
+export { Dropdown } from "./components/dropdown"
 export { Element } from "./components/element"
 export { Image } from "./components/image"
 export { Input } from "./components/input"
