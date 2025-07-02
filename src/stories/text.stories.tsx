@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
+import { Panel } from "../components/panel"
 import { Element } from "../components/element"
 
 const meta = {
   title: "Text",
-  component: Element,
+  component: Panel,
   tags: ["autodocs"],
-} satisfies Meta<typeof Element>
+} satisfies Meta<typeof Panel>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -56,7 +57,7 @@ export const Wide: Story = {
 
 export const Opacity: Story = {
   args: {
-    children: <Element opaque>Text Opacity</Element>,
+    children: <Element opaque="normal">Text Opacity</Element>,
     className: "w3-panel",
     color: "pink",
   },
