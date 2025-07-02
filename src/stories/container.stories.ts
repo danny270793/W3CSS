@@ -53,3 +53,12 @@ export const WithSomeHoverableBorders: Story = {
     color: "pale-red",
   },
 }
+
+export const Rounded: Story = {
+  args: {
+    children: "This is a rounded container",
+    border: {},
+    color: "red",
+    round: "large",
+  },
+}
