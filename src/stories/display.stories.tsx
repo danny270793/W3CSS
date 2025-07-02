@@ -115,3 +115,10 @@ export const Floating: Story = {
     color: "light-gray",
   },
 }
+
+export const HideShow: Story = {
+  args: {
+    children: <Button color="red">I'm a button</Button>,
+    className: "w3-bar",
+  },
+}
