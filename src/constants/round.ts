@@ -1,1 +1,1 @@
-export type Round = "small" | "large" | "xlarge" | "xxlarge"
+export type Round = "small" | "normal" | "large" | "xlarge" | "xxlarge"
