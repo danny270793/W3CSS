@@ -6,3 +6,4 @@ export type Type =
   | "li"
   | "span"
   | "img"
+  | "input"
