@@ -1,12 +1,12 @@
 import type { FC, ReactNode } from "react"
-import { Element, type CheckboxProps } from "./element"
+import { Element, type CheckboxProps as Base } from "./element"
 
-interface CustomCheckboxProps extends Omit<CheckboxProps, "mode"> {
+interface CheckboxProps extends Omit<Base, "mode"> {
   label: string
 }
 
-export const Checkbox: FC<CustomCheckboxProps> = (
-  props: CustomCheckboxProps,
+export const Checkbox: FC<CheckboxProps> = (
+  props: CheckboxProps,
 ): ReactNode => {
   return (
     <>
