@@ -83,3 +83,17 @@ export const Rounded: Story = {
     round: "xlarge",
   },
 }
+
+export const HidePanel: Story = {
+  args: {
+    children: (
+      <>
+        <span className="w3-button w3-display-topright">X</span>
+        <p>Click on the X to close this panel.</p>
+        <p>Click on the X to close this panel.</p>
+      </>
+    ),
+    color: "red",
+    className: "w3-display-container",
+  },
+}
