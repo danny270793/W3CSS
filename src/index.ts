@@ -1,10 +1,9 @@
 import "./styles/w3css.css"
 
-export { Element } from "./components/element"
-export { Container } from "./components/container"
-export { Panel } from "./components/panel"
-export { Card } from "./components/card"
 export { Button } from "./components/button"
+export { Card } from "./components/card"
+export { Checkbox } from "./components/checkbox"
+export { Container } from "./components/container"
 export {
   Display,
   DisplayBottomLeft,
@@ -17,5 +16,9 @@ export {
   DisplayTopMiddle,
   DisplayTopRight,
 } from "./components/display"
-export { List, ListItem } from "./components/list"
+export { Element } from "./components/element"
 export { Image } from "./components/image"
+export { Input } from "./components/input"
+export { List, ListItem } from "./components/list"
+export { Panel } from "./components/panel"
+export { Radio } from "./components/radio"
