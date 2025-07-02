@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
-import { Element, type ElementProps } from "./element"
+import { Element, type DisplayProps } from "./element"
 
-export const Container: FC<ElementProps> = (props: ElementProps): ReactNode => {
+export const Container: FC<DisplayProps> = (props: DisplayProps): ReactNode => {
   return (
     <Element
       {...props}
