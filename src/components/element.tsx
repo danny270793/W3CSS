@@ -7,6 +7,7 @@ import type { Size } from "../constants/sizes"
 import type { Type } from "../constants/types"
 import type { TextAlign } from "../constants/text-align"
 import type { Padding } from "../constants/padding"
+import type { Margin } from "../constants/margin"
 
 export interface ElementProps {
   children?: ReactNode
@@ -28,6 +29,8 @@ export interface ElementProps {
   opaque?: boolean
   disabled?: boolean
   wide?: boolean
+  margin?: boolean | Margin
+  section?: boolean
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -131,6 +134,27 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   }
   if (props.wide) {
     classNames.push(`w3-wide`)
+  }
+  if (typeof props.margin === "boolean") {
+    if (props.margin) {
+      classNames.push("w3-margin")
+    }
+  } else if (typeof props.margin === "object") {
+    if (props.margin.top) {
+      classNames.push("w3-margin-top")
+    }
+    if (props.margin.bottom) {
+      classNames.push("w3-margin-bottom")
+    }
+    if (props.margin.left) {
+      classNames.push("w3-margin-left")
+    }
+    if (props.margin.right) {
+      classNames.push("w3-margin-right")
+    }
+  }
+  if (props.section) {
+    classNames.push("w3-section")
   }
 
   switch (props.type || "div") {
