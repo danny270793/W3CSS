@@ -1,12 +1,14 @@
-import type { FC, ReactNode } from "react"
+import type { CSSProperties, FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
 import type { Type } from "../constants/types"
+import type { TextAlign } from "../constants/text-align"
+import type { Padding } from "../constants/padding"
 
-interface ElementProps {
+export interface ElementProps {
   children?: ReactNode
   className?: string
   color?: Color
@@ -17,6 +19,14 @@ interface ElementProps {
   size?: Size
   type?: Type
   center?: boolean
+  hoverColor?: Color
+  textAlign?: TextAlign
+  padding?: Padding
+  circle?: boolean
+  ripple?: boolean
+  style?: CSSProperties | undefined
+  opaque?: boolean
+  disabled?: boolean
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -85,19 +95,60 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   }
   if (props.size) {
     if (props.size !== "normal") {
-      classNames.push(`w3-${props.round}`)
+      classNames.push(`w3-${props.size}`)
     }
   }
   if (props.center) {
     classNames.push("w3-center")
   }
+  if (props.hoverColor) {
+    classNames.push(`w3-hover-${props.hoverColor}`)
+  }
+  if (props.textAlign === "left") {
+    classNames.push("w3-left-align")
+  } else if (props.textAlign === "right") {
+    classNames.push("w3-right-align")
+  }
+  if (props.padding) {
+    classNames.push(`w3-padding-${props.padding}`)
+  }
+  if (props.circle) {
+    classNames.push(`w3-circle`)
+  }
+  if (props.ripple) {
+    classNames.push(`w3-ripple`)
+  }
+  if (props.opaque) {
+    classNames.push(`w3-opacity`)
+  }
+  if (props.disabled) {
+    classNames.push(`w3-disabled`)
+  }
 
   switch (props.type || "div") {
     case "div":
-      return <div className={classNames.join(" ")}>{props.children}</div>
+      return (
+        <div className={classNames.join(" ")} style={props.style}>
+          {props.children}
+        </div>
+      )
     case "header":
-      return <header className={classNames.join(" ")}>{props.children}</header>
+      return (
+        <header className={classNames.join(" ")} style={props.style}>
+          {props.children}
+        </header>
+      )
     case "footer":
-      return <footer className={classNames.join(" ")}>{props.children}</footer>
+      return (
+        <footer className={classNames.join(" ")} style={props.style}>
+          {props.children}
+        </footer>
+      )
+    case "button":
+      return (
+        <button className={classNames.join(" ")} style={props.style}>
+          {props.children}
+        </button>
+      )
   }
 }
