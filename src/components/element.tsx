@@ -33,6 +33,7 @@ export interface ElementProps {
   section?: boolean
   hover?: "display" | "opacity"
   float?: "left" | "right"
+  show?: boolean
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -167,6 +168,13 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   }
   if (props.float) {
     classNames.push(`w3-${props.float}`)
+  }
+  if (typeof props.show === "boolean") {
+    if (props.show) {
+      classNames.push("w3-show")
+    } else {
+      classNames.push("w3-hide")
+    }
   }
 
   switch (props.type || "div") {
