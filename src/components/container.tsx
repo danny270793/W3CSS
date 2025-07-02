@@ -1,19 +1,14 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
-import { Div } from "./div"
+import { Element, type ElementProps } from "./element"
 
-interface ContainerProps {
-  children?: ReactNode
-  color?: Color
-  className?: string
-}
-
-export const Container: FC<ContainerProps> = (
-  props: ContainerProps,
-): ReactNode => {
+export const Container: FC<ElementProps> = (props: ElementProps): ReactNode => {
   return (
-    <Div color={props.color} className={`w3-container ${props.className}`}>
+    <Element
+      {...props}
+      style={props.style}
+      className={["w3-container", props.className].join(" ")}
+    >
       {props.children}
-    </Div>
+    </Element>
   )
 }

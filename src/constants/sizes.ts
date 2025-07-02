@@ -1,0 +1,10 @@
+export type Size =
+  | "tiny"
+  | "small"
+  | "medium"
+  | "normal"
+  | "large"
+  | "xlarge"
+  | "xxlarge"
+  | "xxxlarge"
+  | "jumbo"
