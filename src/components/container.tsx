@@ -1,12 +1,14 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
+import type { Color } from "../constants/colors"
 import { Div } from "./div"
-import type { Border } from "./border"
+import type { Border } from "../constants/border"
+import type { Round } from "../constants/round"
 
 interface ContainerProps {
   children?: ReactNode
-  color?: Color
   className?: string
+  color?: Color
+  round?: Round
   border?: boolean | Border
 }
 
@@ -15,8 +17,9 @@ export const Container: FC<ContainerProps> = (
 ): ReactNode => {
   return (
     <Div
-      color={props.color}
       className={["w3-container", props.className].join(" ")}
+      color={props.color}
+      round={props.round}
       border={props.border}
     >
       {props.children}

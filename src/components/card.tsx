@@ -1,25 +1,28 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
+import type { Color } from "../constants/colors"
 import { Div } from "./div"
-import type { Border } from "./border"
+import type { Border } from "../constants/border"
+import type { Round } from "../constants/round"
 
 interface CardProps {
   children?: ReactNode
+  className?: string
   elevation?: 2 | 4
   color?: Color
-  className?: string
   border?: boolean | Border
+  round?: Round
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
   return (
     <Div
-      color={props.color}
-      border={props.border}
       className={[
         `w3-card-${props.elevation ? props.elevation : 2}`,
         props.className,
       ].join(" ")}
+      color={props.color}
+      round={props.round}
+      border={props.border}
     >
       {props.children}
     </Div>

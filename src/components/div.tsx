@@ -1,12 +1,14 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
-import type { Border } from "./border"
+import type { Color } from "../constants/colors"
+import type { Border } from "../constants/border"
+import type { Round } from "../constants/round"
 
 interface DivProps {
   children?: ReactNode
   className?: string
   color?: Color
   border?: boolean | Border
+  round?: Round
 }
 
 export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
@@ -38,6 +40,9 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     if (props.border.hover) {
       classNames.push(`w3-hover-border-${props.border.hover}`)
     }
+  }
+  if (props.round) {
+    classNames.push(`w3-round-${props.round}`)
   }
   return <div className={classNames.join(" ")}>{props.children}</div>
 }
