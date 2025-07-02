@@ -5,6 +5,7 @@ import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 import type { Size } from "../constants/sizes"
+import type { Type } from "../constants/types"
 
 interface ContainerProps {
   children?: ReactNode
@@ -15,7 +16,7 @@ interface ContainerProps {
   thickBorder?: boolean | Border
   font?: Font
   size?: Size
-  type?: "header" | "footer" | "div"
+  type?: Type
 }
 
 export const Container: FC<ContainerProps> = (
@@ -30,6 +31,7 @@ export const Container: FC<ContainerProps> = (
       thickBorder={props.thickBorder}
       font={props.font}
       size={props.size}
+      type={props.type}
     >
       {props.children}
     </Element>
