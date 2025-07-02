@@ -128,3 +128,52 @@ export const XXLargeRoundedBordered: Story = {
     round: "xxlarge",
   },
 }
+
+export const LeftThickBordered: Story = {
+  args: {
+    children: <p>I have a thick left border.</p>,
+    thickBorder: {
+      left: true,
+    },
+  },
+}
+
+export const LeftBlueThickBordered: Story = {
+  args: {
+    children: <p>I have a thick blue left border.</p>,
+    thickBorder: {
+      left: true,
+      color: "blue",
+    },
+  },
+}
+
+export const LeftBlueThickBorderedPaleBlue: Story = {
+  args: {
+    children: (
+      <p>I have a thick blue left border and a pale-blue background color.</p>
+    ),
+    thickBorder: {
+      left: true,
+      color: "blue",
+    },
+    color: "pale-blue",
+  },
+}
+
+export const UpDownRedThickBorderedPaleRed: Story = {
+  args: {
+    children: (
+      <p>
+        I have a thick red top and bottom border and a pale-red background
+        color.
+      </p>
+    ),
+    thickBorder: {
+      top: true,
+      bottom: true,
+      color: "red",
+    },
+    color: "pale-red",
+  },
+}
