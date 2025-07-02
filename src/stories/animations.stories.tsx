@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { Container } from "../components/container"
-import { Opacity } from "./text.stories"
 
 const meta = {
   title: "Animations",
