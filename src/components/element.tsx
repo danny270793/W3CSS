@@ -31,6 +31,7 @@ export interface ElementProps {
   wide?: boolean
   margin?: boolean | Margin
   section?: boolean
+  hover?: "display" | "opacity"
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -155,6 +156,13 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   }
   if (props.section) {
     classNames.push("w3-section")
+  }
+  if (props.hover) {
+    if (props.hover === "display") {
+      classNames.push("w3-display-hover")
+    } else if (props.hover === "opacity") {
+      classNames.push("w3-hover-opacity")
+    }
   }
 
   switch (props.type || "div") {
