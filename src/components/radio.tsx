@@ -1,13 +1,11 @@
 import type { FC, ReactNode } from "react"
-import { Element, type RadioProps } from "./element"
+import { Element, type RadioProps as Base } from "./element"
 
-interface CustomCheckboxProps extends Omit<RadioProps, "mode"> {
+interface RadioProps extends Omit<Base, "mode"> {
   label: string
 }
 
-export const Radio: FC<CustomCheckboxProps> = (
-  props: CustomCheckboxProps,
-): ReactNode => {
+export const Radio: FC<RadioProps> = (props: RadioProps): ReactNode => {
   return (
     <>
       <Element
