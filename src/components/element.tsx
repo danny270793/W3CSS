@@ -32,6 +32,7 @@ export interface ElementProps {
   margin?: boolean | Margin
   section?: boolean
   hover?: "display" | "opacity"
+  float?: "left" | "right"
 }
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
@@ -163,6 +164,9 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     } else if (props.hover === "opacity") {
       classNames.push("w3-hover-opacity")
     }
+  }
+  if (props.float) {
+    classNames.push(`w3-${props.float}`)
   }
 
   switch (props.type || "div") {
