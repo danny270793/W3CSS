@@ -98,3 +98,20 @@ export const Conatiner: Story2 = {
     ),
   },
 }
+
+export const Floating: Story = {
+  args: {
+    children: (
+      <>
+        <Element float="left" color="red" padding="normal">
+          Left
+        </Element>
+        <Element float="right" color="blue" padding="normal">
+          Right
+        </Element>
+      </>
+    ),
+    className: "w3-bar",
+    color: "light-gray",
+  },
+}
