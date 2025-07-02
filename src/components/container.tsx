@@ -10,6 +10,7 @@ interface ContainerProps {
   color?: Color
   round?: Round
   border?: boolean | Border
+  thickBorder?: boolean | Border
 }
 
 export const Container: FC<ContainerProps> = (
@@ -21,6 +22,7 @@ export const Container: FC<ContainerProps> = (
       color={props.color}
       round={props.round}
       border={props.border}
+      thickBorder={props.thickBorder}
     >
       {props.children}
     </Div>
