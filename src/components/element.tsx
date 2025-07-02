@@ -111,7 +111,11 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     classNames.push("w3-right-align")
   }
   if (props.padding) {
-    classNames.push(`w3-padding-${props.padding}`)
+    if (props.padding === "normal") {
+      classNames.push("w3-padding")
+    } else {
+      classNames.push(`w3-padding-${props.padding}`)
+    }
   }
   if (props.circle) {
     classNames.push(`w3-circle`)
