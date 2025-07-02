@@ -10,31 +10,31 @@ interface DivProps {
 }
 
 export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
-  return (
-    <div
-      className={`${props.className} ${props.color ? `w3-${props.color}` : ""} ${props.border instanceof Boolean ? `w3-border${props.border ? "" : "-0"}` : ""} ${
-        props.border instanceof Object && props.border.top
-          ? "w3-border-top"
-          : ""
-      } ${
-        props.border instanceof Object && props.border.bottom
-          ? "w3-border-bottom"
-          : ""
-      } ${
-        props.border instanceof Object && props.border.left
-          ? "w3-border-left"
-          : ""
-      } ${
-        props.border instanceof Object && props.border.right
-          ? "w3-border-right"
-          : ""
-      } ${
-        props.border instanceof Object && props.border.color
-          ? `w3-border-${props.border.color}`
-          : ""
-      }`}
-    >
-      {props.children}
-    </div>
-  )
+  const classNames: string[] = []
+  if (props.className) {
+    classNames.push(props.className)
+  }
+  if (props.color) {
+    classNames.push(`w3-${props.color}`)
+  }
+  if (typeof props.border === "boolean") {
+    classNames.push(`w3-border${props.border ? "" : "-0"}`)
+  } else if (typeof props.border === "object") {
+    if (props.border.top) {
+      classNames.push("w3-border-top")
+    }
+    if (props.border.bottom) {
+      classNames.push("w3-border-bottom")
+    }
+    if (props.border.left) {
+      classNames.push("w3-border-left")
+    }
+    if (props.border.right) {
+      classNames.push("w3-border-right")
+    }
+    if (props.border.color) {
+      classNames.push(`w3-border-${props.border.color}`)
+    }
+  }
+  return <div className={classNames.join(" ")}>{props.children}</div>
 }
