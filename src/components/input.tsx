@@ -1,14 +1,12 @@
 import type { FC, ReactNode } from "react"
-import { Element, type InputProps } from "./element"
+import { Element, type InputProps as Base } from "./element"
 
-interface CustomInputProps extends Omit<InputProps, "mode"> {
+interface InputProps extends Omit<Base, "mode"> {
   label?: string
   mode?: "text"
 }
 
-export const Input: FC<CustomInputProps> = (
-  props: CustomInputProps,
-): ReactNode => {
+export const Input: FC<InputProps> = (props: InputProps): ReactNode => {
   return (
     <>
       {props.label && (
