@@ -202,5 +202,11 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
           {props.children}
         </button>
       )
+    case "li":
+      return (
+        <li className={classNames.join(" ")} style={props.style}>
+          {props.children}
+        </li>
+      )
   }
 }
