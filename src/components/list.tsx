@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
-import { Element, type ElementProps } from "./element"
+import { Element, type DisplayProps } from "./element"
 
-export const List: FC<ElementProps> = (props: ElementProps): ReactNode => {
+export const List: FC<DisplayProps> = (props: DisplayProps): ReactNode => {
   return (
     <Element
       {...props}
@@ -13,7 +13,7 @@ export const List: FC<ElementProps> = (props: ElementProps): ReactNode => {
   )
 }
 
-export const ListItem: FC<ElementProps> = (props: ElementProps): ReactNode => {
+export const ListItem: FC<DisplayProps> = (props: DisplayProps): ReactNode => {
   return (
     <Element
       {...props}
