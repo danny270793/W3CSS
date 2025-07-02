@@ -23,3 +23,20 @@ export const BlueNormal: Story = {
     color: "blue",
   },
 }
+
+export const WithBorders: Story = {
+  args: {
+    children: "This is a bordered blue container",
+    border: true,
+  },
+}
+
+export const WithSomeBorders: Story = {
+  args: {
+    children: "This is a bordered blue container",
+    border: {
+      left: true,
+      right: true,
+    },
+  },
+}
