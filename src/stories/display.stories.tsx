@@ -12,6 +12,8 @@ import {
   DisplayTopMiddle,
   DisplayTopRight,
 } from "../components/display"
+import { Element } from "../components/element"
+import { Button } from "../components/button"
 
 const meta = {
   title: "Display",
@@ -22,7 +24,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const FullMargin: Story = {
+export const AllDisplays: Story = {
   args: {
     children: (
       <>
@@ -41,5 +43,58 @@ export const FullMargin: Story = {
     ),
     style: { height: "100px" },
     color: "green",
+  },
+}
+
+export const FullMargin: Story = {
+  args: {
+    children: (
+      <>
+        <DisplayTopLeft hover="display">Top left</DisplayTopLeft>
+        <DisplayTopMiddle hover="display">Top middle</DisplayTopMiddle>
+        <DisplayTopRight hover="display">Top right</DisplayTopRight>
+
+        <DisplayLeft hover="display">Left</DisplayLeft>
+        <DisplayMiddle>Middle</DisplayMiddle>
+        <DisplayRight hover="display">Right</DisplayRight>
+
+        <DisplayBottomLeft hover="display">Bottom left</DisplayBottomLeft>
+        <DisplayBottomMiddle hover="display">Bottom middle</DisplayBottomMiddle>
+        <DisplayBottomRight hover="display">Bottom right</DisplayBottomRight>
+      </>
+    ),
+    style: { height: "100px" },
+    color: "green",
+  },
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const meta2 = {
+  title: "Display",
+  component: Element,
+  tags: ["autodocs"],
+} satisfies Meta<typeof Element>
+
+type Story2 = StoryObj<typeof meta2>
+
+export const Conatiner: Story2 = {
+  args: {
+    children: (
+      <>
+        <h1>
+          The <strong>w3-display-hover</strong> Class
+        </h1>
+        <Display hover="opacity" style={{ width: "350px" }}>
+          <img
+            src="https://www.w3schools.com/w3css/img_avatar3.png"
+            alt="Avatar"
+            width="100%"
+          ></img>
+          <DisplayMiddle hover="display" size="xxlarge">
+            <Button color="black">John Doe</Button>
+          </DisplayMiddle>
+        </Display>
+      </>
+    ),
   },
 }
