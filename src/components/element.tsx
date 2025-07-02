@@ -49,6 +49,7 @@ export interface InputProps extends CommonProps {
 export interface CheckboxProps extends CommonProps {
   type?: "input"
   mode: "checkbox"
+  label?: string
   checked?: boolean
   onChange?: (checked: boolean) => void
 }
@@ -67,12 +68,12 @@ export interface ImageProps extends CommonProps {
   alt?: string
 }
 
-export interface OtherProps extends CommonProps {
+export interface DisplayProps extends CommonProps {
   type?: Exclude<Type, "img" | "input">
 }
 
 export type ElementProps =
-  | OtherProps
+  | DisplayProps
   | ImageProps
   | InputProps
   | CheckboxProps
