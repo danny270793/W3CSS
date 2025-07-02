@@ -15,9 +15,9 @@ export const Normal: Story = {
   args: {
     children: (
       <>
-        <li>Jill</li>
-        <li>Eve</li>
-        <li>Adam</li>
+        <ListItem>Jill</ListItem>
+        <ListItem>Eve</ListItem>
+        <ListItem>Adam</ListItem>
       </>
     ),
   },
@@ -27,9 +27,9 @@ export const Bordered: Story = {
   args: {
     children: (
       <>
-        <li>Jill</li>
-        <li>Eve</li>
-        <li>Adam</li>
+        <ListItem>Jill</ListItem>
+        <ListItem>Eve</ListItem>
+        <ListItem>Adam</ListItem>
       </>
     ),
     border: true,
@@ -53,9 +53,9 @@ export const Hoverable: Story = {
   args: {
     children: (
       <>
-        <ListItem className="w3-hover-light-gray">Jill</ListItem>
-        <ListItem className="w3-hover-light-gray">Eve</ListItem>
-        <ListItem className="w3-hover-light-gray">Adam</ListItem>
+        <ListItem hoverColor="light-gray">Jill</ListItem>
+        <ListItem hoverColor="light-gray">Eve</ListItem>
+        <ListItem hoverColor="light-gray">Adam</ListItem>
       </>
     ),
   },
