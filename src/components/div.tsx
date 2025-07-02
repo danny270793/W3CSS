@@ -8,6 +8,7 @@ interface DivProps {
   className?: string
   color?: Color
   border?: boolean | Border
+  thickBorder?: boolean | Border
   round?: Round
 }
 
@@ -39,6 +40,30 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     }
     if (props.border.hover) {
       classNames.push(`w3-hover-border-${props.border.hover}`)
+    }
+  }
+  if (typeof props.thickBorder === "boolean") {
+    if (props.thickBorder) {
+      classNames.push("w3-topbar w3-bottombar w3-leftbar w3-rightbar")
+    }
+  } else if (typeof props.thickBorder === "object") {
+    if (props.thickBorder.top) {
+      classNames.push("w3-topbar")
+    }
+    if (props.thickBorder.bottom) {
+      classNames.push("w3-bottombar")
+    }
+    if (props.thickBorder.left) {
+      classNames.push("w3-leftbar")
+    }
+    if (props.thickBorder.right) {
+      classNames.push("w3-rightbar")
+    }
+    if (props.thickBorder.color) {
+      classNames.push(`w3-border-${props.thickBorder.color}`)
+    }
+    if (props.thickBorder.hover) {
+      classNames.push(`w3-hover-border-${props.thickBorder.hover}`)
     }
   }
   if (props.round) {
