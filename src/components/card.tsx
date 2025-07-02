@@ -1,23 +1,21 @@
 import type { FC, ReactNode } from "react"
-import type { Color } from "./colors"
-import { Div } from "./div"
+import { Element, type ElementProps } from "./element"
 
-interface CardProps {
-  children?: ReactNode
+interface CardProps extends ElementProps {
   elevation?: 2 | 4
-  color?: Color
-  className?: string
 }
 
 export const Card: FC<CardProps> = (props: CardProps): ReactNode => {
   return (
-    <Div
-      color={props.color}
-      className={`w3-card-${props.elevation ? props.elevation : 2} ${
-        props.className
-      }`}
+    <Element
+      {...props}
+      style={props.style}
+      className={[
+        `w3-card-${props.elevation ? props.elevation : 2}`,
+        props.className,
+      ].join(" ")}
     >
       {props.children}
-    </Div>
+    </Element>
   )
 }
