@@ -42,5 +42,6 @@ export const Quote: Story = {
     },
     color: "sand",
     font: "serif",
+    size: "xxlarge",
   },
 }
