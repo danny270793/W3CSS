@@ -18,3 +18,4 @@ export {
   DisplayTopRight,
 } from "./components/display"
 export { List, ListItem } from "./components/list"
+export { Image } from "./components/image"
