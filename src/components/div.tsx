@@ -42,7 +42,11 @@ export const Div: FC<DivProps> = (props: DivProps): ReactNode => {
     }
   }
   if (props.round) {
-    classNames.push(`w3-round-${props.round}`)
+    if (props.round === "normal") {
+      classNames.push(`w3-round`)
+    } else {
+      classNames.push(`w3-round-${props.round}`)
+    }
   }
   return <div className={classNames.join(" ")}>{props.children}</div>
 }
