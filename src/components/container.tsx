@@ -2,7 +2,7 @@ import type { FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
 import { Div } from "./div"
 import type { Border } from "../constants/border"
-import type { Round } from "../constants/round"
+import type { Round } from "../constants/rounds"
 import type { Font } from "../constants/fonts"
 
 interface ContainerProps {
