@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Panel } from "../components/panel"
 
 const meta = {
-  title: "Borders",
+  title: "Border",
   component: Panel,
   tags: ["autodocs"],
 } satisfies Meta<typeof Panel>
