@@ -1,5 +1,6 @@
 import "./styles/w3css.css"
 
+export { Badge } from "./components/badge"
 export { Button } from "./components/button"
 export { Card } from "./components/card"
 export { Checkbox } from "./components/checkbox"
