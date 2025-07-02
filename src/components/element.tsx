@@ -36,6 +36,15 @@ export interface CommonProps {
   hover?: "display" | "opacity" | "grayscale" | "sepia"
   float?: "left" | "right"
   show?: boolean
+  animate?:
+    | "top"
+    | "bottom"
+    | "left"
+    | "right"
+    | "opacity"
+    | "zoom"
+    | "fading"
+    | "spin"
 }
 
 export interface InputProps extends CommonProps {
@@ -235,6 +244,13 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
       classNames.push("w3-show")
     } else {
       classNames.push("w3-hide")
+    }
+  }
+  if (props.animate) {
+    if (props.animate === "spin") {
+      classNames.push(`w3-${props.animate}`)
+    } else {
+      classNames.push(`w3-animate-${props.animate}`)
     }
   }
 
