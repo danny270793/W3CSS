@@ -26,12 +26,14 @@ export interface ElementProps {
   circle?: boolean
   ripple?: boolean
   style?: CSSProperties | undefined
-  opaque?: boolean
+  opaque?: "min" | "max" | "normal"
+  grayscale?: "min" | "max" | "normal"
+  sepia?: "min" | "max" | "normal"
   disabled?: boolean
   wide?: boolean
   margin?: boolean | Margin
   section?: boolean
-  hover?: "display" | "opacity"
+  hover?: "display" | "opacity" | "grayscale" | "sepia"
   float?: "left" | "right"
   show?: boolean
 }
@@ -142,7 +144,25 @@ export const Element: FC<OtherProps | ImageProps> = (
     classNames.push(`w3-ripple`)
   }
   if (props.opaque) {
-    classNames.push(`w3-opacity`)
+    if (props.opaque === "normal") {
+      classNames.push(`w3-opacity`)
+    } else {
+      classNames.push(`w3-opacity-${props.opaque}`)
+    }
+  }
+  if (props.grayscale) {
+    if (props.grayscale === "normal") {
+      classNames.push(`w3-grayscale`)
+    } else {
+      classNames.push(`w3-grayscale-${props.grayscale}`)
+    }
+  }
+  if (props.sepia) {
+    if (props.sepia === "normal") {
+      classNames.push(`w3-sepia`)
+    } else {
+      classNames.push(`w3-sepia-${props.sepia}`)
+    }
   }
   if (props.disabled) {
     classNames.push(`w3-disabled`)
@@ -174,8 +194,8 @@ export const Element: FC<OtherProps | ImageProps> = (
   if (props.hover) {
     if (props.hover === "display") {
       classNames.push("w3-display-hover")
-    } else if (props.hover === "opacity") {
-      classNames.push("w3-hover-opacity")
+    } else {
+      classNames.push(`w3-hover-${props.hover}`)
     }
   }
   if (props.float) {
