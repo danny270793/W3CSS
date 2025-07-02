@@ -68,16 +68,7 @@ export const FullMargin: Story = {
   },
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const meta2 = {
-  title: "Display",
-  component: Element,
-  tags: ["autodocs"],
-} satisfies Meta<typeof Element>
-
-type Story2 = StoryObj<typeof meta2>
-
-export const Conatiner: Story2 = {
+export const Conatiner: Story = {
   args: {
     children: (
       <>
