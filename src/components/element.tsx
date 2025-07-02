@@ -45,6 +45,7 @@ export interface CommonProps {
     | "zoom"
     | "fading"
     | "spin"
+  fixed?: "top" | "bottom"
 }
 
 export interface InputProps extends CommonProps {
@@ -252,6 +253,9 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     } else {
       classNames.push(`w3-animate-${props.animate}`)
     }
+  }
+  if (props.fixed) {
+    classNames.push(`w3-${props.fixed}`)
   }
 
   if (!props.type || props.type === "div") {
