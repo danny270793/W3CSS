@@ -27,3 +27,19 @@ export const Bordered: Story = {
     alt: "Snowy Mountains",
   },
 }
+
+export const Opaque: Story = {
+  args: {
+    src: "https://www.w3schools.com/w3css/img_snowtops.jpg",
+    alt: "Snowy Mountains",
+    opaque: "max",
+  },
+}
+
+export const Grayscale: Story = {
+  args: {
+    src: "https://www.w3schools.com/w3css/img_snowtops.jpg",
+    alt: "Snowy Mountains",
+    grayscale: "max",
+  },
+}
