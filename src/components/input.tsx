@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type InputProps as Base } from "./element"
 
-interface InputProps extends Omit<Base, "mode"> {
+export interface InputProps extends Omit<Base, "mode"> {
   label?: string
   mode?: "text"
 }
