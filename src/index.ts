@@ -23,6 +23,8 @@ export { Element } from "./components/element"
 export { Image } from "./components/image"
 export { Input } from "./components/input"
 export { List, ListItem } from "./components/list"
+export { Modal } from "./components/modal"
+export { Paginator } from "./components/paginator"
 export { Panel } from "./components/panel"
 export { Radio } from "./components/radio"
 export {
@@ -35,4 +37,5 @@ export {
   RowThreeQuarter,
   RowTwoThird,
 } from "./components/row"
+export { Sidebar } from "./components/sidebar"
 export { Tag } from "./components/tag"
