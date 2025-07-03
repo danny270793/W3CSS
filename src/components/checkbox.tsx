@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type CheckboxProps as Base } from "./element"
 
-interface CheckboxProps extends Omit<Base, "mode"> {
+export interface CheckboxProps extends Omit<Base, "mode"> {
   label: string
 }
 

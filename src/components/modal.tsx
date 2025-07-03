@@ -3,7 +3,7 @@ import { Element, type DisplayProps } from "./element"
 import { Button } from "./button"
 import { Container } from "./container"
 
-interface ModalProps extends DisplayProps {
+export interface ModalProps extends DisplayProps {
   onClose?: () => void
 }
 

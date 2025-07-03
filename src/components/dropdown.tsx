@@ -2,7 +2,7 @@ import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 import { Button } from "./button"
 
-interface DropdownProps extends DisplayProps {
+export interface DropdownProps extends DisplayProps {
   label: string
 }
 

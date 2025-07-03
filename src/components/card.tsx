@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 
-interface CardProps extends DisplayProps {
+export interface CardProps extends DisplayProps {
   elevation?: 2 | 4
 }
 
