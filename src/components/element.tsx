@@ -1,4 +1,4 @@
-import type { CSSProperties, FC, ReactNode } from "react"
+import type { ChangeEvent, CSSProperties, FC, ReactNode } from "react"
 import type { Color } from "../constants/colors"
 import type { Border } from "../constants/border"
 import type { Round } from "../constants/rounds"
@@ -7,8 +7,9 @@ import type { Size } from "../constants/sizes"
 import type { Type } from "../constants/types"
 import type { TextAlign } from "../constants/text-align"
 import type { Padding } from "../constants/padding"
+import type { Margin } from "../constants/margin"
 
-export interface ElementProps {
+export interface CommonProps {
   children?: ReactNode
   className?: string
   color?: Color
@@ -25,10 +26,68 @@ export interface ElementProps {
   circle?: boolean
   ripple?: boolean
   style?: CSSProperties | undefined
-  opaque?: boolean
+  opaque?: "min" | "max" | "normal"
+  grayscale?: "min" | "max" | "normal"
+  sepia?: "min" | "max" | "normal"
   disabled?: boolean
   wide?: boolean
+  margin?: boolean | Margin
+  section?: boolean
+  hover?: "display" | "opacity" | "grayscale" | "sepia"
+  float?: "left" | "right"
+  show?: boolean
+  animate?:
+    | "top"
+    | "bottom"
+    | "left"
+    | "right"
+    | "opacity"
+    | "zoom"
+    | "fading"
+    | "spin"
+  fixed?: "top" | "bottom"
 }
+
+export interface InputProps extends CommonProps {
+  type?: "input"
+  mode: "text" | "password" | "email" | "number"
+  placeholder?: string
+  value?: string
+  onChange?: (value: string) => void
+}
+
+export interface CheckboxProps extends CommonProps {
+  type?: "input"
+  mode: "checkbox"
+  label?: string
+  checked?: boolean
+  onChange?: (checked: boolean) => void
+}
+
+export interface RadioProps extends CommonProps {
+  type?: "input"
+  mode: "radio"
+  selected?: string
+  value?: string
+  onChange?: (value: string) => void
+}
+
+export interface ImageProps extends CommonProps {
+  type?: "img"
+  src: string
+  alt?: string
+}
+
+export interface DisplayProps extends CommonProps {
+  type?: Exclude<Type, "img" | "input">
+}
+
+export type ElementProps =
+  | DisplayProps
+  | ImageProps
+  | InputProps
+  | CheckboxProps
+  | RadioProps
 
 export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   const classNames: string[] = []
@@ -124,7 +183,25 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
     classNames.push(`w3-ripple`)
   }
   if (props.opaque) {
-    classNames.push(`w3-opacity`)
+    if (props.opaque === "normal") {
+      classNames.push(`w3-opacity`)
+    } else {
+      classNames.push(`w3-opacity-${props.opaque}`)
+    }
+  }
+  if (props.grayscale) {
+    if (props.grayscale === "normal") {
+      classNames.push(`w3-grayscale`)
+    } else {
+      classNames.push(`w3-grayscale-${props.grayscale}`)
+    }
+  }
+  if (props.sepia) {
+    if (props.sepia === "normal") {
+      classNames.push(`w3-sepia`)
+    } else {
+      classNames.push(`w3-sepia-${props.sepia}`)
+    }
   }
   if (props.disabled) {
     classNames.push(`w3-disabled`)
@@ -132,31 +209,150 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
   if (props.wide) {
     classNames.push(`w3-wide`)
   }
+  if (typeof props.margin === "boolean") {
+    if (props.margin) {
+      classNames.push("w3-margin")
+    }
+  } else if (typeof props.margin === "object") {
+    if (props.margin.top) {
+      classNames.push("w3-margin-top")
+    }
+    if (props.margin.bottom) {
+      classNames.push("w3-margin-bottom")
+    }
+    if (props.margin.left) {
+      classNames.push("w3-margin-left")
+    }
+    if (props.margin.right) {
+      classNames.push("w3-margin-right")
+    }
+  }
+  if (props.section) {
+    classNames.push("w3-section")
+  }
+  if (props.hover) {
+    if (props.hover === "display") {
+      classNames.push("w3-display-hover")
+    } else {
+      classNames.push(`w3-hover-${props.hover}`)
+    }
+  }
+  if (props.float) {
+    classNames.push(`w3-${props.float}`)
+  }
+  if (typeof props.show === "boolean") {
+    if (props.show) {
+      classNames.push("w3-show")
+    } else {
+      classNames.push("w3-hide")
+    }
+  }
+  if (props.animate) {
+    if (props.animate === "spin") {
+      classNames.push(`w3-${props.animate}`)
+    } else {
+      classNames.push(`w3-animate-${props.animate}`)
+    }
+  }
+  if (props.fixed) {
+    classNames.push(`w3-${props.fixed}`)
+  }
 
-  switch (props.type || "div") {
-    case "div":
+  if (!props.type || props.type === "div") {
+    return (
+      <div className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </div>
+    )
+  } else if (props.type === "header") {
+    return (
+      <header className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </header>
+    )
+  } else if (props.type === "footer") {
+    return (
+      <footer className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </footer>
+    )
+  } else if (props.type === "button") {
+    return (
+      <button className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </button>
+    )
+  } else if (props.type === "li") {
+    return (
+      <li className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </li>
+    )
+  } else if (props.type === "span") {
+    return (
+      <span className={classNames.join(" ")} style={props.style}>
+        {props.children}
+      </span>
+    )
+  } else if (props.type === "img") {
+    return (
+      <img
+        className={classNames.join(" ")}
+        style={props.style}
+        src={props.type === "img" ? props.src : undefined}
+        alt={props.type === "img" ? props.alt : undefined}
+      >
+        {props.children}
+      </img>
+    )
+  } else if (props.type === "input") {
+    if (props.mode === "checkbox") {
       return (
-        <div className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </div>
+        <input
+          type={props.mode}
+          disabled={props.disabled}
+          className={classNames.join(" ")}
+          style={props.style}
+          checked={props.checked}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            if (props.onChange) {
+              props.onChange(e.target.checked)
+            }
+          }}
+        />
       )
-    case "header":
+    } else if (props.mode === "radio") {
       return (
-        <header className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </header>
+        <input
+          type={props.mode}
+          disabled={props.disabled}
+          className={classNames.join(" ")}
+          style={props.style}
+          value={props.value}
+          checked={props.value === props.selected}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            if (props.onChange) {
+              props.onChange(e.target.value)
+            }
+          }}
+        />
       )
-    case "footer":
-      return (
-        <footer className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </footer>
-      )
-    case "button":
-      return (
-        <button className={classNames.join(" ")} style={props.style}>
-          {props.children}
-        </button>
-      )
+    }
+
+    return (
+      <input
+        type={props.mode}
+        disabled={props.disabled}
+        className={classNames.join(" ")}
+        style={props.style}
+        placeholder={props.placeholder}
+        value={props.value}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          if (props.onChange) {
+            props.onChange(e.target.value)
+          }
+        }}
+      />
+    )
   }
 }

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
-import { Element } from "../components/element"
+import { Panel } from "../components/panel"
 
 const meta = {
   title: "Round",
-  component: Element,
+  component: Panel,
   tags: ["autodocs"],
-} satisfies Meta<typeof Element>
+} satisfies Meta<typeof Panel>
 
 export default meta
 type Story = StoryObj<typeof meta>
