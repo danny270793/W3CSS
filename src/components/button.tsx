@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 
-interface ButtonProps extends DisplayProps {
+export interface ButtonProps extends DisplayProps {
   block?: boolean
 }
 
