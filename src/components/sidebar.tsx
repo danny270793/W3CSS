@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 
-interface SidebarProps extends DisplayProps {
+export interface SidebarProps extends DisplayProps {
   sidebar: ReactNode
 }
 
