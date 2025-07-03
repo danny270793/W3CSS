@@ -11,6 +11,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps): ReactNode => {
       {...props}
       style={props.style}
       type="button"
+      onClick={props.onClick}
       className={[
         "w3-button",
         props.block ? "w3-block" : "",
