@@ -2,7 +2,7 @@ import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 import { Button } from "./button"
 
-interface PaginatorProps extends DisplayProps {
+export interface PaginatorProps extends DisplayProps {
   currentPage: number
   totalPages: number
   onNavigateTo?: (page: number) => void
