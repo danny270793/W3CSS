@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type RadioProps as Base } from "./element"
 
-interface RadioProps extends Omit<Base, "mode"> {
+export interface RadioProps extends Omit<Base, "mode"> {
   label: string
 }
 
