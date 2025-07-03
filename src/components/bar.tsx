@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
 import { Element, type DisplayProps } from "./element"
 
-interface BarProps extends DisplayProps {
+export interface BarProps extends DisplayProps {
   direction?: "horizontal" | "vertical"
 }
 
