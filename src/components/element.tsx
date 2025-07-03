@@ -12,6 +12,7 @@ import type { Margin } from "../constants/margin"
 export interface CommonProps {
   children?: ReactNode
   className?: string
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   color?: Color
   border?: boolean | Border
   thickBorder?: boolean | Border
@@ -260,7 +261,11 @@ export const Element: FC<ElementProps> = (props: ElementProps): ReactNode => {
 
   if (!props.type || props.type === "div") {
     return (
-      <div className={classNames.join(" ")} style={props.style}>
+      <div
+        onClick={props.onClick}
+        className={classNames.join(" ")}
+        style={props.style}
+      >
         {props.children}
       </div>
     )
